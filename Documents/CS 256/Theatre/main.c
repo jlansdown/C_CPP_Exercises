@@ -1,3 +1,5 @@
+
+
 #include <stdio.h>
 
 const int row = 15; //number of rows
@@ -13,6 +15,8 @@ int main() {
     double rowPrice[rowNum]; //prices for rows
     double ticketSales = 0.00;
     int ticketsSold = 0;
+    int totalSeats = row*seats;
+    int seatsInRow = 0;
     char selection;
     int rowSelection, seatSelection;
     const char taken = '#';
@@ -27,53 +31,74 @@ int main() {
         }
     }
 
+    printf("\n");
     setSeats(rowPrice, rowNum);
     mapSeats(map, rowPrice);
-    printf("\n\n");
+    printf("\n");
 
     do {
-        printf("\nTheater Menu\n");
+        printf("Theater Menu\n");
         printf("--------------------\n");
         printf("1) Sell a ticket\n");
         printf("2) Display seating\n");
         printf("3) Ticket sales\n");
+        printf("4) Remaining seats for row\n");
         printf("q/Q) Quit program\n");
         printf("Selection: ");
         scanf(" %c", &selection);
 
 
         if (selection == '1') {
-            printf("Please enter a row number and seat to purchase a ticket: ");
-            printf("Row # : ");
+            printf("\nPlease enter a row number and seat to purchase a ticket: ");
+            printf("\nRow # : ");
             scanf(" %d", &rowSelection);
             fflush(stdin);
-            printf("\nSeat # : ");
+            printf("Seat # : ");
             scanf(" %d", &seatSelection);
             fflush(stdin);
             printf("\n");
 
+            if (rowSelection > 15 || seatSelection > 30) {
+                printf("This is not a valid seat! Please enter another selection.\n");
+                continue;
+            }
 
-            if (map[rowSelection][seatSelection] == taken) {
+
+            if (map[rowSelection - 1][seatSelection - 1] == taken) {
                 printf("This seat is taken! Please enter another selection.\n");
                 continue;
             } else {
-                map[rowSelection][seatSelection] = taken; //mark seat as TAKEN
-                ticketSales += rowPrice[rowSelection];
+                map[rowSelection - 1][seatSelection - 1] = taken; //mark seat as TAKEN
+                ticketSales += rowPrice[rowSelection - 1];
                 ticketsSold += 1;
+                totalSeats -= 1;
             }
         } else if (selection  == '2') {
             mapSeats(map, rowPrice);
         } else if (selection == '3') {
             printf("\nTickets sold: %d\n", ticketsSold);
             printf("Ticket sales: %.2lf\n", ticketSales);
+            printf("Total seats remaining: %d\n\n", totalSeats);
+        } else if (selection == '4') {
+            printf("\nPlease enter row #: ");
+            scanf(" %d", &rowSelection);
+            fflush(stdin);
+            for (int i = 0; i < seats; i++) {
+                if (map[rowSelection - 1][i] != taken) {
+                    seatsInRow += 1;
+                }
+            }
+            printf("There are %d available seats in this row.\n\n", seatsInRow);
+            seatsInRow = 0;
         }
         else if (selection == 'q' || selection == 'Q') {
             printf("Thank you...Goodbye");
             break;
-        }else if (selection != '1' || selection != '2' || selection != 'q' || selection != 'Q') {
+        }else if (selection != '1' || selection != '2' || selection != '3' || selection != '4'
+                || selection != 'q' || selection != 'Q') {
             printf("Invalid selection...\n");
         }
-    } while (selection != '1' || selection != '2' || selection != 'q' || selection != 'Q');
+    } while (selection != 'q' || selection != 'Q');
 
     return 0;
 }
@@ -83,9 +108,8 @@ void setSeats(double rowPrice[], int row) {
     printf("\nPlease enter a ticket price for each row: \n");
 
     for (int i = 0; i < row; i++) {
-        printf("Row # %d: ", i+1);
+        printf("Row # %d: ", i + 1);
         scanf(" %lf", &rowPrice[i]);
-
     }
 }
 
@@ -100,14 +124,12 @@ void mapSeats(char seatMap[row][seats], double price[]) {
     for (int i = 0; i < row; i++) {
         if (i < 9) {
         printf("\nRow %d  $%.2f   ", i + 1, price[i]);
-        }else {
+        } else {
             printf("\nRow %d $%.2f   ", i + 1, price[i]);
         }
 
         for (int j = 0; j < seats; j++) {
-
             printf("%-3c ", seatMap[i][j]);
-
         }
     }
     printf("\n");
