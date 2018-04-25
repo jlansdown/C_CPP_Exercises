@@ -29,7 +29,7 @@ void Circle::setRadius(double rad) { radius = rad; }
 
 double Circle::getRadius() { return radius; }
 
-double Circle::getArea() { return 2 * radius * radius; }
+double Circle::getArea() { return pi * radius * radius; }
 
 double Circle::getDiameter() { return 2 * radius; }
 
