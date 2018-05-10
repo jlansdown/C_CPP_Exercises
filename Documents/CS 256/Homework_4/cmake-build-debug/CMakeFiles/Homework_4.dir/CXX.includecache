@@ -1,0 +1,122 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/james/Documents/CS 256/Homework_4/CargoShip.cpp
+CargoShip.h
+/Users/james/Documents/CS 256/Homework_4/CargoShip.h
+iostream
+-
+
+/Users/james/Documents/CS 256/Homework_4/CargoShip.h
+Ship.h
+/Users/james/Documents/CS 256/Homework_4/Ship.h
+
+/Users/james/Documents/CS 256/Homework_4/CruiseShip.cpp
+CruiseShip.h
+/Users/james/Documents/CS 256/Homework_4/CruiseShip.h
+iostream
+-
+
+/Users/james/Documents/CS 256/Homework_4/CruiseShip.h
+Ship.h
+/Users/james/Documents/CS 256/Homework_4/Ship.h
+string
+-
+
+/Users/james/Documents/CS 256/Homework_4/Die.cpp
+Die.h
+/Users/james/Documents/CS 256/Homework_4/Die.h
+cmath
+-
+iostream
+-
+
+/Users/james/Documents/CS 256/Homework_4/Die.h
+
+/Users/james/Documents/CS 256/Homework_4/Game21.cpp
+Game21.h
+/Users/james/Documents/CS 256/Homework_4/Game21.h
+iostream
+-
+
+/Users/james/Documents/CS 256/Homework_4/Game21.h
+Die.h
+/Users/james/Documents/CS 256/Homework_4/Die.h
+
+/Users/james/Documents/CS 256/Homework_4/ParkedCar.cpp
+ParkedCar.h
+/Users/james/Documents/CS 256/Homework_4/ParkedCar.h
+
+/Users/james/Documents/CS 256/Homework_4/ParkedCar.h
+string
+-
+
+/Users/james/Documents/CS 256/Homework_4/ParkingMeter.cpp
+ParkingMeter.h
+/Users/james/Documents/CS 256/Homework_4/ParkingMeter.h
+
+/Users/james/Documents/CS 256/Homework_4/ParkingMeter.h
+
+/Users/james/Documents/CS 256/Homework_4/ParkingTicket.cpp
+ParkingTicket.h
+/Users/james/Documents/CS 256/Homework_4/ParkingTicket.h
+PoliceOfficer.h
+/Users/james/Documents/CS 256/Homework_4/PoliceOfficer.h
+cmath
+-
+
+/Users/james/Documents/CS 256/Homework_4/ParkingTicket.h
+iostream
+-
+ParkedCar.h
+/Users/james/Documents/CS 256/Homework_4/ParkedCar.h
+ParkingMeter.h
+/Users/james/Documents/CS 256/Homework_4/ParkingMeter.h
+
+/Users/james/Documents/CS 256/Homework_4/PoliceOfficer.cpp
+PoliceOfficer.h
+/Users/james/Documents/CS 256/Homework_4/PoliceOfficer.h
+
+/Users/james/Documents/CS 256/Homework_4/PoliceOfficer.h
+ParkedCar.h
+/Users/james/Documents/CS 256/Homework_4/ParkedCar.h
+ParkingMeter.h
+/Users/james/Documents/CS 256/Homework_4/ParkingMeter.h
+ParkingTicket.h
+/Users/james/Documents/CS 256/Homework_4/ParkingTicket.h
+
+/Users/james/Documents/CS 256/Homework_4/Ship.cpp
+Ship.h
+/Users/james/Documents/CS 256/Homework_4/Ship.h
+iostream
+-
+
+/Users/james/Documents/CS 256/Homework_4/Ship.h
+string
+-
+
+/Users/james/Documents/CS 256/Homework_4/main.cpp
+iostream
+-
+ParkedCar.h
+/Users/james/Documents/CS 256/Homework_4/ParkedCar.h
+ParkingMeter.h
+/Users/james/Documents/CS 256/Homework_4/ParkingMeter.h
+ParkingTicket.h
+/Users/james/Documents/CS 256/Homework_4/ParkingTicket.h
+PoliceOfficer.h
+/Users/james/Documents/CS 256/Homework_4/PoliceOfficer.h
+Game21.h
+/Users/james/Documents/CS 256/Homework_4/Game21.h
+Ship.h
+/Users/james/Documents/CS 256/Homework_4/Ship.h
+CruiseShip.h
+/Users/james/Documents/CS 256/Homework_4/CruiseShip.h
+CargoShip.h
+/Users/james/Documents/CS 256/Homework_4/CargoShip.h
+
