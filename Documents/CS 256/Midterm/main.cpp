@@ -1,3 +1,5 @@
+//Github - https://github.com/rainko/Nimbus/blob/master/Documents/CS%20256/Midterm/main.cpp
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -16,6 +18,9 @@ private:
     char _sex;
 
     Human();
+
+    friend class Parent;
+    friend class Child;
 
 protected:
     Human(string name, int age, char sex);
@@ -73,18 +78,26 @@ class Child;
 class Parent : public Human {
 
 private:
+
+    Parent();
     vector<Child> children;
+
+    friend class Parent;
 
 public:
 
     Parent(string name, int age, char sex);
 
     void setChildren(vector<Child>&  newChildren);
-    Child & getChild(size_t index);
+    vector<Child>& getChildren();
+
+    void nameChild(Child& child, string name);
 
     string work() override;
 
 };
+
+Parent::Parent() : Human(), children() {}
 
 Parent::Parent(string name, int age, char sex) :
 Human(name, age, sex) {
@@ -95,9 +108,10 @@ void Parent::setChildren(vector<Child>& newChildren) {
 }
 
 
-Child &Parent::getChild(size_t index){
-    return children[index];
+vector<Child>& Parent::getChildren(){
+    return children;
 }
+
 
 string Parent::work() {
     if (this->getSex() == 'M') {
@@ -117,7 +131,7 @@ private:
     Parent Mom;
     Parent Dad;
 
-    //Child();
+    Child();
 
     friend class Parent;
 
@@ -128,7 +142,9 @@ public:
 
 };
 
-
+Child::Child() :
+Human(), Mom("", 0, ' '), Dad("", 0, ' ') {
+}
 
 Child::Child(string name, int age, char sex, Parent mom, Parent dad) :
         Human(name, age, sex), Mom(mom), Dad(dad) {
@@ -142,6 +158,12 @@ string Child::work() {
         return "Play";
     }
 }
+
+void Parent::nameChild(Child& child, string name) {
+    child._name = name;
+}
+
+
 
 
 
@@ -166,11 +188,9 @@ int main() {
     homer.setChildren(children);
     marge.setChildren(children);
 
-
-    homer.getChild(0).setName("Lisa");
-    homer.getChild(1).setName("Bart");
-    marge.getChild(0).setName("Maggie");
-
+    marge.nameChild(maggie, "Maggie");
+    homer.nameChild(bart, "Bart");
+    homer.nameChild(lisa, "Lisa");
 
     cout << homer.getName() << " " << homer.getAge() << " " <<  homer.getSex() << " " << homer.work();
     cout << endl << lisa.getName() << " " << lisa.getAge() << " " <<  lisa.getSex() << " " << lisa.work();
